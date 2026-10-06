@@ -1,0 +1,22 @@
+# 인덱스 데이터 (재생성 가능, 용량 큼)
+data/
+
+# 압축 파일
+*.tar.gz
+*.zip
+
+# 테스트용 임시 파일
+test_watch/
+test_watch.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db

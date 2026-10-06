@@ -1,0 +1,68 @@
+paths:
+  data_dir: data
+  chroma_dir: data/chroma
+  bm25s_path: data/bm25s
+  tracker_db: data/index.db
+  uploads_dir: /home/k0924p3/knowledge-base/uploads
+
+embedding:
+  model: BAAI/bge-m3
+  dim: 1024
+  batch_size: 32
+
+chunking:
+  size: 1200               # 글자 수 (한국어는 글자 단위가 적합)
+  overlap: 150             # 글자 수
+  structure_split_min_size: 300   # STRONG_STRUCTURE 경계 조기 emit 최소 버퍼 크기
+  min_body_size: 600       # prefix 차감 후 effective_chunk_size 하한
+  max_chunks_per_file: null  # null = 무제한. 최종 안전 fuse (어떤 경로든 초과 시 비정상)
+
+table:
+  full_index_chunk_limit: 10000  # 예상 청크 > 이 값이면 structural chunk로 전환
+
+search:
+  vector_top_k: 50
+  bm25_top_k: 50
+  rrf_k: 60       # RRF 병합 파라미터
+
+reranker:
+  enabled: false
+  model: BAAI/bge-reranker-v2-m3
+  top_k: 10
+
+mcp:
+  host: 0.0.0.0
+  port: 8000
+
+watcher:
+  debounce_seconds: 30   # 마지막 변경 감지 후 N초 대기 후 인덱싱 시작
+
+bm25:
+  rebuild_debounce_minutes: 5  # 마지막 /reindex 후 N분 뒤 BM25S rebuild
+
+ocr:
+  enabled: true
+  gpu: true               # RTX 4060 Ti 8GB — bge-m3(1.2GB) + EasyOCR(0.6GB) 합계 ~2GB, 여유 충분
+  min_text_chars: 50      # PDF 페이지 텍스트가 이 미만이면 OCR 실행
+  languages:
+    - ko
+    - en
+
+supported_extensions:
+  - .pdf
+  - .docx
+  - .pptx
+  - .xlsx
+  - .xls
+  - .csv
+  - .txt
+  - .md
+  - .markdown
+  - .html
+  - .htm
+  - .hwp
+  - .hwpx
+  - .rtf
+  - .pages
+  - .numbers
+  - .key
