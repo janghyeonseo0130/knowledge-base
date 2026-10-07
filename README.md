@@ -151,47 +151,7 @@ watcher 파일 감지 → POST /reindex → MCP 서버 background thread
 
 ---
 
-## 5. 현재 진행 상황
-
-### 완료
-
-| 항목 | 내용 |
-|------|------|
-| 16개 포맷 파서 | 완료 |
-| 증분 인덱싱 (다중 루트) | 완료 |
-| 하이브리드 검색 (RRF + dedup) | 완료 |
-| 컨텍스트 프리픽스 청킹 | 완료 |
-| Kiwi 형태소 분석 BM25 | 완료 |
-| MCP 서버 5개 툴 (SSE) | 완료 |
-| Ubuntu 서버 배포 | 완료 — 환경 구성 + GPU(CUDA) 확인 + 테스트 인덱싱 (2026-04-23) |
-| 전체 문서 인덱싱 | 완료 — 16,000개 파일, 765,041 청크 (2026-05-20) |
-| OOM 해결 (BM25S 교체) | 완료 — rank_bm25 → BM25S 교체 (RAM 30~38GB → ~3GB), watcher 역할 분리(POST /reindex), rebuild debounce 5분 (2026-06-29) |
-| Mac NFD 파일명 정규화 | 완료 — nfc_rename.py로 13,399개 파일 NFD→NFC 변환, sync.sh에 --local-unicode-normalization 추가 (2026-06-30) |
-| 관리자 대시보드 | 완료 — 4컬럼 4행 그리드, 성공률·팀원별 파일 수·확장자 분포·대기 파일 수 (2026-07-02) |
-| OCR 지원 | 완료 — EasyOCR(GPU), 스캔본 PDF fallback, docx/pptx 삽입 이미지 OCR (2026-07-06) |
-| 청커 4단계 경계 기반 재설계 | 완료 — STRONG_STRUCTURE/PARAGRAPH/SENTENCE/LINE, xlsx/csv 별도 라우팅 (2026-09-15) |
-| pipeline.py 배치 임베딩 처리 | 완료 — 500청크 단위 배치 처리, MAX_CHUNKS_PER_FILE SKIP 로직 (2026-09-18) |
-| 파일 자동 동기화 | 완료 — rclone+SFTP, end-to-end 파이프라인 테스트 완료, 배포 패키지 완성 (2026-06-04) |
-| systemd 서비스 등록 | 완료 — knowledge-base-mcp + knowledge-base-watcher (2026-06-11) |
-
-### 진행 중 / 검토 중
-
-| 항목 | 내용 |
-|------|------|
-| 팀원 배포 | 대기 — 재인덱싱 완료 + 서비스 재시작 후 상급자 테스트 → 팀원 배포 예정 |
-| Reranker 실 동작 검증 | 진행 중 |
-| 실사용 시나리오 테스트 | 진행 중 — Claude가 툴을 연속 호출해 복잡한 작업을 처리하는지 확인 |
-| xlsx 청커 재설계 (2단계 sheet 처리) | 진행 중 — 일반 sheet: row-group chunks, 대형 sheet: deterministic summary chunk |
-
-### 미착수
-
-| 항목 | 내용 |
-|------|------|
-| 관계성/지식 그래프 | 미착수 — 단기 Wiki.js → 중기 Graph DB → 장기 LightRAG |
-
----
-
-## 6. 한계 및 향후 보완점
+## 5. 한계 및 향후 보완점
 
 ### 현재 한계
 
@@ -207,7 +167,7 @@ watcher 파일 감지 → POST /reindex → MCP 서버 background thread
 
 ---
 
-## 7. 요약
+## 6. 요약
 
 | 구분 | 내용 |
 |------|------|
