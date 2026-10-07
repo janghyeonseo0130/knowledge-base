@@ -13,7 +13,7 @@
 | 항목 | 내용 |
 |------|------|
 | 배포 환경 | Ubuntu 서버 |
-| 예상 규모 | 1인 400GB × 20명 = ~8TB |
+| 서버 사양 | i9-14900KF · RAM 62GB · RTX 4060 Ti 8GB · NVMe 1.8TB |
 | 언어 | Python 3.10+ |
 | MCP transport | HTTP/SSE (다중 사용자 동시 접속) |
 
