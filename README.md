@@ -172,7 +172,7 @@ watcher 파일 감지 → POST /reindex → MCP 서버 background thread
 | 구분 | 내용 |
 |------|------|
 | 무엇을 하는가 | 업무 문서를 자동 인덱싱하고 AI 에이전트가 MCP로 검색·활용하는 공용 지식 서버 |
-| 누가 쓰는가 | 허가된 내부 사용자 (최소 20명), 각자의 AI 에이전트를 통해 접근 |
+| 누가 쓰는가 | 허가된 내부 사용자, 각자의 AI 에이전트를 통해 접근 |
 | 핵심 기술 | BAAI/bge-m3 임베딩 + BM25S(Kiwi) + RRF + Cross-encoder Reranker + ChromaDB + FastMCP |
 | 차별점 | 한국어 특화 청킹, 컨텍스트 프리픽스, 문서 단위 dedup, 다중 루트 독립 관리 |
 | 현재 단계 | 청커 4단계 경계 재설계·배치 임베딩·greedy merge 구현 완료 (2026-09-18). 다음: xlsx 2단계 sheet 처리 구현 → 전체 재인덱싱 → 팀원 배포 |
