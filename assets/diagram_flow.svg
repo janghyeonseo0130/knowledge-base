@@ -4,94 +4,94 @@
   </defs>
 
   <!-- Background -->
-  <rect width="900" height="460" fill="#f8fafc" rx="12"/>
+  <rect width="900" height="460" fill="#ffffff" rx="12" stroke="#bae6fd" stroke-width="1.5"/>
 
   <!-- Title -->
   <text x="450" y="29" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">전체 처리 흐름</text>
 
   <!-- ── Lane 1: 사용자 PC ── -->
-  <rect x="8" y="42" width="884" height="112" fill="#eff6ff" rx="8" stroke="#bfdbfe" stroke-width="1.5"/>
-  <rect x="16" y="84" width="94" height="28" fill="#3b82f6" rx="14"/>
-  <text x="63" y="103" text-anchor="middle" font-size="12" font-weight="600" fill="white">사용자 PC</text>
+  <rect x="8" y="42" width="884" height="112" fill="#f0f9ff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
+  <rect x="16" y="84" width="94" height="28" fill="#0284c7" rx="14"/>
+  <text x="63" y="103" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">사용자 PC</text>
 
   <!-- Box: 문서 저장 -->
-  <rect x="306" y="57" width="162" height="80" fill="white" rx="8" stroke="#bfdbfe" stroke-width="1.5"/>
-  <text x="387" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#1e40af">문서 저장</text>
-  <text x="387" y="110" text-anchor="middle" font-size="11" fill="#64748b">rclone 폴더</text>
+  <rect x="306" y="57" width="162" height="80" fill="#ffffff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
+  <text x="387" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a">문서 저장</text>
+  <text x="387" y="110" text-anchor="middle" font-size="11" fill="#475569">rclone 폴더</text>
 
   <!-- Arrow -->
-  <text x="480" y="103" text-anchor="middle" font-size="20" fill="#94a3b8">→</text>
+  <text x="480" y="104" text-anchor="middle" font-size="20" fill="#7dd3fc">→</text>
 
   <!-- Box: 자동 동기화 -->
-  <rect x="493" y="57" width="162" height="80" fill="white" rx="8" stroke="#bfdbfe" stroke-width="1.5"/>
-  <text x="574" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#1e40af">자동 동기화</text>
-  <text x="574" y="110" text-anchor="middle" font-size="11" fill="#64748b">5분마다 SFTP</text>
+  <rect x="493" y="57" width="162" height="80" fill="#ffffff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
+  <text x="574" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a">자동 동기화</text>
+  <text x="574" y="110" text-anchor="middle" font-size="11" fill="#475569">5분마다 SFTP</text>
 
   <!-- ── Connector 1: SFTP ── -->
-  <line x1="450" y1="154" x2="450" y2="196" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <polygon points="446,192 450,200 454,192" fill="#94a3b8"/>
-  <text x="462" y="179" font-size="11" fill="#64748b">↓ SFTP 전송</text>
+  <line x1="450" y1="154" x2="450" y2="196" stroke="#7dd3fc" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="446,192 450,200 454,192" fill="#7dd3fc"/>
+  <text x="462" y="179" font-size="11" fill="#475569">↓ SFTP 전송</text>
 
   <!-- ── Lane 2: 서버 ── -->
-  <rect x="8" y="200" width="884" height="112" fill="#f0fdf4" rx="8" stroke="#a7f3d0" stroke-width="1.5"/>
-  <rect x="16" y="242" width="66" height="28" fill="#16a34a" rx="14"/>
-  <text x="49" y="261" text-anchor="middle" font-size="12" font-weight="600" fill="white">서버</text>
+  <rect x="8" y="200" width="884" height="112" fill="#f0f9ff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
+  <rect x="16" y="242" width="66" height="28" fill="#0284c7" rx="14"/>
+  <text x="49" y="261" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">서버</text>
 
   <!-- Box 1: watcher 감지 -->
-  <rect x="120" y="215" width="162" height="80" fill="white" rx="8" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="120" y="215" width="162" height="80" fill="#ffffff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
   <text x="201" y="259" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a">watcher 감지</text>
 
   <!-- Arrow -->
-  <text x="294" y="262" text-anchor="middle" font-size="20" fill="#94a3b8">→</text>
+  <text x="294" y="262" text-anchor="middle" font-size="20" fill="#7dd3fc">→</text>
 
   <!-- Box 2: 자동 인덱싱 -->
-  <rect x="307" y="215" width="162" height="80" fill="#fffbeb" rx="8" stroke="#fde68a" stroke-width="1.5"/>
-  <text x="388" y="248" text-anchor="middle" font-size="13" font-weight="600" fill="#92400e">자동 인덱싱</text>
-  <text x="388" y="268" text-anchor="middle" font-size="11" fill="#78350f">30초 debounce</text>
+  <rect x="307" y="215" width="162" height="80" fill="#ffffff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
+  <text x="388" y="248" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a">자동 인덱싱</text>
+  <text x="388" y="268" text-anchor="middle" font-size="11" fill="#475569">30초 debounce</text>
 
   <!-- Arrow -->
-  <text x="481" y="262" text-anchor="middle" font-size="20" fill="#94a3b8">→</text>
+  <text x="481" y="262" text-anchor="middle" font-size="20" fill="#7dd3fc">→</text>
 
   <!-- Box 3: DB 갱신 -->
-  <rect x="494" y="215" width="162" height="80" fill="white" rx="8" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="494" y="215" width="162" height="80" fill="#ffffff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
   <text x="575" y="248" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a">DB 갱신</text>
-  <text x="575" y="268" text-anchor="middle" font-size="11" fill="#64748b">ChromaDB + BM25S</text>
+  <text x="575" y="268" text-anchor="middle" font-size="11" fill="#475569">ChromaDB + BM25S</text>
 
   <!-- Arrow -->
-  <text x="668" y="262" text-anchor="middle" font-size="20" fill="#94a3b8">→</text>
+  <text x="668" y="262" text-anchor="middle" font-size="20" fill="#7dd3fc">→</text>
 
   <!-- Box 4: POST /reindex -->
-  <rect x="681" y="215" width="162" height="80" fill="#f0fdf4" rx="8" stroke="#86efac" stroke-width="1.5"/>
-  <text x="762" y="248" text-anchor="middle" font-size="13" font-weight="600" fill="#166534">POST /reindex</text>
-  <text x="762" y="268" text-anchor="middle" font-size="11" fill="#166534">MCP 서버 위임</text>
+  <rect x="681" y="215" width="162" height="80" fill="#ffffff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
+  <text x="762" y="248" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a">POST /reindex</text>
+  <text x="762" y="268" text-anchor="middle" font-size="11" fill="#475569">MCP 서버 위임</text>
 
   <!-- ── Connector 2: MCP ── -->
-  <line x1="450" y1="312" x2="450" y2="354" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <polygon points="446,314 450,306 454,314" fill="#94a3b8"/>
-  <polygon points="446,350 450,358 454,350" fill="#94a3b8"/>
-  <text x="462" y="337" font-size="11" fill="#64748b">↕ MCP HTTP/SSE</text>
+  <line x1="450" y1="312" x2="450" y2="354" stroke="#7dd3fc" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <polygon points="446,314 450,306 454,314" fill="#7dd3fc"/>
+  <polygon points="446,350 450,358 454,350" fill="#7dd3fc"/>
+  <text x="462" y="337" font-size="11" fill="#475569">↕ MCP HTTP/SSE</text>
 
   <!-- ── Lane 3: Claude Desktop ── -->
-  <rect x="8" y="360" width="884" height="92" fill="#eff6ff" rx="8" stroke="#bfdbfe" stroke-width="1.5"/>
-  <rect x="16" y="392" width="104" height="28" fill="#3b82f6" rx="14"/>
-  <text x="68" y="411" text-anchor="middle" font-size="11" font-weight="600" fill="white">Claude Desktop</text>
+  <rect x="8" y="360" width="884" height="92" fill="#f0f9ff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
+  <rect x="16" y="392" width="104" height="28" fill="#0284c7" rx="14"/>
+  <text x="68" y="411" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">Claude Desktop</text>
 
   <!-- Box: 질의 입력 -->
-  <rect x="212" y="373" width="162" height="68" fill="white" rx="8" stroke="#bfdbfe" stroke-width="1.5"/>
-  <text x="293" y="411" text-anchor="middle" font-size="13" font-weight="600" fill="#1e40af">질의 입력</text>
+  <rect x="212" y="373" width="162" height="68" fill="#ffffff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
+  <text x="293" y="411" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a">질의 입력</text>
 
   <!-- Arrow -->
-  <text x="387" y="411" text-anchor="middle" font-size="20" fill="#94a3b8">→</text>
+  <text x="387" y="411" text-anchor="middle" font-size="20" fill="#7dd3fc">→</text>
 
   <!-- Box: MCP 툴 호출 -->
-  <rect x="399" y="373" width="162" height="68" fill="white" rx="8" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="399" y="373" width="162" height="68" fill="#ffffff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
   <text x="480" y="411" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a">MCP 툴 호출</text>
 
   <!-- Arrow -->
-  <text x="574" y="411" text-anchor="middle" font-size="20" fill="#94a3b8">→</text>
+  <text x="574" y="411" text-anchor="middle" font-size="20" fill="#7dd3fc">→</text>
 
   <!-- Box: 결과 반환 -->
-  <rect x="586" y="373" width="162" height="68" fill="#f0fdf4" rx="8" stroke="#86efac" stroke-width="1.5"/>
-  <text x="667" y="411" text-anchor="middle" font-size="13" font-weight="600" fill="#166534">결과 반환</text>
+  <rect x="586" y="373" width="162" height="68" fill="#ffffff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
+  <text x="667" y="411" text-anchor="middle" font-size="13" font-weight="600" fill="#0f172a">결과 반환</text>
 
 </svg>

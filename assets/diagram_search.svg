@@ -4,52 +4,51 @@
   </defs>
 
   <!-- Background -->
-  <rect width="580" height="490" fill="#f8fafc" rx="12"/>
+  <rect width="580" height="490" fill="#ffffff" rx="12" stroke="#bae6fd" stroke-width="1.5"/>
 
   <!-- Title -->
   <text x="290" y="30" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">검색·AI 연동</text>
 
   <!-- ── Row 1: 두 검색 방식 ── -->
   <!-- Box: 벡터 검색 -->
-  <rect x="30" y="46" width="228" height="90" fill="#eff6ff" rx="8" stroke="#bfdbfe" stroke-width="1.5"/>
-  <text x="144" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">벡터 검색</text>
-  <text x="144" y="98" text-anchor="middle" font-size="11" fill="#3b82f6">bge-m3 1024D</text>
-  <text x="144" y="116" text-anchor="middle" font-size="11" fill="#64748b">ChromaDB</text>
+  <rect x="30" y="46" width="228" height="90" fill="#f0f9ff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
+  <text x="144" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">벡터 검색</text>
+  <text x="144" y="98" text-anchor="middle" font-size="11" fill="#0284c7">bge-m3 1024D</text>
+  <text x="144" y="116" text-anchor="middle" font-size="11" fill="#475569">ChromaDB</text>
 
   <!-- Box: 키워드 검색 -->
-  <rect x="322" y="46" width="228" height="90" fill="#eff6ff" rx="8" stroke="#bfdbfe" stroke-width="1.5"/>
-  <text x="436" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">키워드 검색</text>
-  <text x="436" y="98" text-anchor="middle" font-size="11" fill="#3b82f6">BM25S + Kiwi</text>
-  <text x="436" y="116" text-anchor="middle" font-size="11" fill="#64748b">형태소 분석</text>
+  <rect x="322" y="46" width="228" height="90" fill="#f0f9ff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
+  <text x="436" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">키워드 검색</text>
+  <text x="436" y="98" text-anchor="middle" font-size="11" fill="#0284c7">BM25S + Kiwi</text>
+  <text x="436" y="116" text-anchor="middle" font-size="11" fill="#475569">형태소 분석</text>
 
   <!-- ── Merge lines ── -->
-  <line x1="144" y1="136" x2="290" y2="175" stroke="#94a3b8" stroke-width="1.5"/>
-  <line x1="436" y1="136" x2="290" y2="175" stroke="#94a3b8" stroke-width="1.5"/>
-  <!-- Merge label -->
-  <rect x="196" y="147" width="188" height="22" fill="#f8fafc" rx="4"/>
-  <text x="290" y="163" text-anchor="middle" font-size="11" fill="#64748b">검색 결과 결합</text>
+  <line x1="144" y1="136" x2="290" y2="175" stroke="#7dd3fc" stroke-width="1.5"/>
+  <line x1="436" y1="136" x2="290" y2="175" stroke="#7dd3fc" stroke-width="1.5"/>
+  <rect x="196" y="147" width="188" height="22" fill="#ffffff" rx="4"/>
+  <text x="290" y="163" text-anchor="middle" font-size="11" fill="#475569">검색 결과 결합</text>
 
   <!-- ── Row 2: RRF + Reranker ── -->
-  <rect x="90" y="178" width="400" height="76" fill="white" rx="8" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="90" y="178" width="400" height="76" fill="#ffffff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
   <text x="290" y="210" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">RRF + Reranker</text>
-  <text x="290" y="231" text-anchor="middle" font-size="11" fill="#64748b">의미·키워드 결과 재정렬</text>
+  <text x="290" y="231" text-anchor="middle" font-size="11" fill="#475569">의미·키워드 결과 재정렬</text>
 
   <!-- ── Arrow ── -->
-  <line x1="290" y1="254" x2="290" y2="288" stroke="#94a3b8" stroke-width="1.5"/>
-  <polygon points="286,284 290,292 294,284" fill="#94a3b8"/>
+  <line x1="290" y1="254" x2="290" y2="288" stroke="#7dd3fc" stroke-width="1.5"/>
+  <polygon points="286,284 290,292 294,284" fill="#7dd3fc"/>
 
   <!-- ── Row 3: MCP 서버 ── -->
-  <rect x="90" y="294" width="400" height="76" fill="#eff6ff" rx="8" stroke="#bfdbfe" stroke-width="1.5"/>
-  <text x="290" y="326" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">MCP 서버</text>
-  <text x="290" y="347" text-anchor="middle" font-size="11" fill="#64748b">문서명 · 근거 구간 반환</text>
+  <rect x="90" y="294" width="400" height="76" fill="#f0f9ff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
+  <text x="290" y="326" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">MCP 서버</text>
+  <text x="290" y="347" text-anchor="middle" font-size="11" fill="#475569">문서명 · 근거 구간 반환</text>
 
   <!-- ── Arrow ── -->
-  <line x1="290" y1="370" x2="290" y2="404" stroke="#94a3b8" stroke-width="1.5"/>
-  <polygon points="286,400 290,408 294,400" fill="#94a3b8"/>
+  <line x1="290" y1="370" x2="290" y2="404" stroke="#7dd3fc" stroke-width="1.5"/>
+  <polygon points="286,400 290,408 294,400" fill="#7dd3fc"/>
 
   <!-- ── Row 4: AI 에이전트 ── -->
-  <rect x="60" y="410" width="460" height="72" fill="white" rx="8" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="60" y="410" width="460" height="72" fill="#ffffff" rx="8" stroke="#bae6fd" stroke-width="1.5"/>
   <text x="290" y="442" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">AI 에이전트 활용</text>
-  <text x="290" y="462" text-anchor="middle" font-size="11" fill="#64748b">Claude · ChatGPT · Cursor</text>
+  <text x="290" y="462" text-anchor="middle" font-size="11" fill="#475569">Claude · ChatGPT · Cursor</text>
 
 </svg>
