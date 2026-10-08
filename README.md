@@ -66,32 +66,11 @@
 
 ### 전체 처리 흐름
 
-```mermaid
-flowchart TB
-    subgraph PC["🖥️  사용자 PC"]
-        A["📄 문서 저장\nrclone 폴더"] --> B["🔄 자동 동기화\n5분마다 SFTP"]
-    end
-    B -- "↓ SFTP 전송" --> C
-    subgraph SRV["🖧  서버"]
-        C["👁 watcher 감지"] --> D["⚙️ 자동 인덱싱\n30초 debounce"]
-        D --> E["🗄 DB 갱신\nChromaDB + BM25S"]
-        E --> F["📡 POST /reindex\nMCP 서버 위임"]
-    end
-    F <-- "↕ MCP HTTP/SSE" --> G
-    subgraph CD["💬  Claude Desktop"]
-        G["💬 질의 입력"] --> H["🔍 MCP 툴 호출"] --> I["📋 결과 반환"]
-    end
-```
+![전체 처리 흐름](assets/diagram_flow.svg)
 
 ### 검색·AI 연동
 
-```mermaid
-flowchart TB
-    A["🔢 벡터 검색\nbge-m3 1024D · ChromaDB"] & B["🔤 키워드 검색\nBM25S + Kiwi 형태소"] --> C["⚖️ RRF 병합\n순위 기반 결합"]
-    C --> D["🎯 Reranker\nbge-reranker-v2-m3"]
-    D --> E["📡 MCP 서버\n문서명 · 근거 구간 반환"]
-    E --> F["🤖 AI 에이전트\nClaude · ChatGPT · Cursor"]
-```
+![검색·AI 연동](assets/diagram_search.svg)
 
 ### 폴더 구조
 
