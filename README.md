@@ -66,27 +66,31 @@
 
 ### 전체 처리 흐름
 
-```
-사용자 PC
-  문서 저장 (rclone 폴더) → 자동 동기화 (5분마다 SFTP)
-        ↓
-서 버
-  watcher 감지 → 자동 인덱싱 (30초 debounce) → DB 갱신 (ChromaDB + BM25S) → POST /reindex (MCP 서버 위임)
-        ↕ MCP HTTP/SSE
-Claude Desktop
-  질의 입력 → MCP 툴 호출 → 결과 반환
+```mermaid
+flowchart TB
+    subgraph PC["🖥️  사용자 PC"]
+        A["📄 문서 저장\nrclone 폴더"] --> B["🔄 자동 동기화\n5분마다 SFTP"]
+    end
+    B -- "↓ SFTP 전송" --> C
+    subgraph SRV["🖧  서버"]
+        C["👁 watcher 감지"] --> D["⚙️ 자동 인덱싱\n30초 debounce"]
+        D --> E["🗄 DB 갱신\nChromaDB + BM25S"]
+        E --> F["📡 POST /reindex\nMCP 서버 위임"]
+    end
+    F <-- "↕ MCP HTTP/SSE" --> G
+    subgraph CD["💬  Claude Desktop"]
+        G["💬 질의 입력"] --> H["🔍 MCP 툴 호출"] --> I["📋 결과 반환"]
+    end
 ```
 
 ### 검색·AI 연동
 
-```
-벡터 검색 (bge-m3 1024D, ChromaDB)  +  키워드 검색 (BM25S sparse, 정확한 용어 보완)
-                          ↓ 검색 결과 결합
-                   RRF + Reranker (의미·키워드 결과 재정렬)
-                          ↓
-                      MCP 서버 (검색 도구 호출, 문서명·근거 구간 반환)
-                          ↓
-              AI 에이전트 활용 (Claude · ChatGPT · Cursor에서 질의·답변)
+```mermaid
+flowchart TB
+    A["🔢 벡터 검색\nbge-m3 1024D · ChromaDB"] & B["🔤 키워드 검색\nBM25S + Kiwi 형태소"] --> C["⚖️ RRF 병합\n순위 기반 결합"]
+    C --> D["🎯 Reranker\nbge-reranker-v2-m3"]
+    D --> E["📡 MCP 서버\n문서명 · 근거 구간 반환"]
+    E --> F["🤖 AI 에이전트\nClaude · ChatGPT · Cursor"]
 ```
 
 ### 폴더 구조
