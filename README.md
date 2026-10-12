@@ -134,7 +134,85 @@ watcher 파일 감지 → POST /reindex → MCP 서버 background thread
 
 ---
 
-## 5. 한계 및 향후 보완점
+## 5. 설치 가이드
+
+### 서버 설치 (관리자)
+
+**요구 사항:** Ubuntu 20.04+, Python 3.10+, CUDA GPU 권장
+
+```bash
+# 1. 코드 클론
+git clone https://github.com/janghyeonseo0130/knowledge-base.git
+cd knowledge-base
+
+# 2. 가상 환경 + 패키지 설치
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+# 3. HuggingFace 모델 다운로드 (최초 1회, 인터넷 연결 필요)
+python -c "from FlagEmbedding import FlagModel; FlagModel('BAAI/bge-m3')"
+python -c "from FlagEmbedding import FlagReranker; FlagReranker('BAAI/bge-reranker-v2-m3')"
+
+# 4. config.yaml 수정
+#    paths.uploads_dir  — 팀원 파일 수신 폴더 경로
+#    mcp.host / mcp.port — 서버 바인딩 주소·포트 (기본 0.0.0.0:8000)
+
+# 5. MCP 서버 시작
+python main.py mcp
+
+# 6. watcher 시작 (별도 터미널)
+python main.py watch /경로/to/uploads
+```
+
+**systemd 서비스 등록 (자동 재시작)**
+
+```bash
+sudo systemctl enable --now knowledge-base-mcp
+sudo systemctl enable --now knowledge-base-watcher
+```
+
+> 서비스 파일 위치: `/etc/systemd/system/knowledge-base-mcp.service`, `knowledge-base-watcher.service`
+
+---
+
+### 팀원 PC 설정 (사용자)
+
+**1단계 — 파일 동기화 설정**
+
+관리자에게 `rclone.zip`을 받아 압축 해제 후 설정합니다.
+
+| OS | 설정 파일 | 수정 항목 | 실행 |
+|----|-----------|-----------|------|
+| Windows | `sync.bat` | `MY_NAME`, `LOCAL_FOLDER` | `install.bat` 관리자 권한 실행 |
+| Mac | `sync.sh` | `MY_NAME`, `LOCAL_FOLDER` | `bash install.sh` |
+
+설치 완료 후 **5분마다 백그라운드에서 서버로 자동 동기화**됩니다.
+
+**2단계 — Claude MCP 연결**
+
+**Claude Code:**
+```bash
+claude mcp add knowledge-base --transport sse http://서버IP:8000/sse
+```
+
+**Claude Desktop** (`claude_desktop_config.json`):
+```json
+{
+  "mcpServers": {
+    "knowledge-base": {
+      "url": "http://서버IP:8000/sse",
+      "transport": "sse"
+    }
+  }
+}
+```
+
+설정 후 Claude에게 **"지식베이스에서 [검색어] 찾아줘"** 라고 하면 바로 검색됩니다.
+
+---
+
+## 6. 한계 및 향후 보완점
 
 ### 현재 한계
 
@@ -150,7 +228,7 @@ watcher 파일 감지 → POST /reindex → MCP 서버 background thread
 
 ---
 
-## 6. 요약
+## 7. 요약
 
 | 구분 | 내용 |
 |------|------|
