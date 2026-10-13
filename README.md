@@ -194,10 +194,10 @@ sudo systemctl enable --now knowledge-base-watcher
 
 관리자에게 `rclone.zip`을 받아 압축 해제 후 설정합니다.
 
-| OS | 설정 파일 | 수정 항목 | 실행 |
-|----|-----------|-----------|------|
-| Windows | `sync.bat` | `MY_NAME`, `LOCAL_FOLDER` | `install.bat` 관리자 권한 실행 |
-| Mac | `sync.sh` | `MY_NAME`, `LOCAL_FOLDER` | `bash install.sh` |
+| OS | 사전 준비 | 설정 파일 | 수정 항목 | 실행 |
+|----|-----------|-----------|-----------|------|
+| Windows | 없음 (rclone.exe 포함) | `sync.bat` | `MY_NAME`, `LOCAL_FOLDER` | `install.bat` 관리자 권한 실행 |
+| Mac | `brew install rclone` | `sync.sh` | `MY_NAME`, `LOCAL_FOLDER` | `bash install.sh` |
 
 설치 완료 후 **5분마다 백그라운드에서 서버로 자동 동기화**됩니다.
 
